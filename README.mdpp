@@ -1,0 +1,68 @@
+## **Module: Thycotic Secret Server Reader (secread)**
+
+This Python module allows to retrive secrets from Thycotic Secret Server.
+It utilizes the REST API
+
+see:
+<https://docs.thycotic.com/ss/10.8.0/api-scripting/rest-api-reference-download>
+
+### License
+
+MIT
+
+### Installation
+
+```bash
+poetry install
+```
+
+### Configuration
+
+To configure the module use following environment variables. It is also possible
+to provide the file '.env' with the settings
+
+```bash
+cat .env
+```
+
+!INCLUDECODE "secret-server-reader/.env.example" (python)
+
+### Development
+
+the primary development directory is /home/ansible/netbot/secret-server-reader on server SCVPCONF01
+
+The installation instruction for `poetry` is here: <https://python-poetry.org/docs/#installation>
+
+- **Using the module with poetry:**
+
+    ```bash
+    git clone .... secret-server-reader
+    cd you_project_dir
+    poetry add .../secret-server-reader
+    ```
+
+- **Using the module with pip:**
+
+    ```bash
+    git clone .... secret-server-reader
+    cd .../secret-server-reader
+    poetry build
+
+    pip install dist/secread-0.1.1-py3-none-any.whl
+    ```
+
+### Running tests
+
+The environment variable SECRET_SERVER_IS_DUMMY is used 
+to define the type of test that will be executed:
+
+- **False**: Test with live data _(Thycotic Secret Server)_
+
+    The environment variabe TEST_SECRET_NAME must be configured to a secret name
+    that the API user has read rights. 
+
+- **True**: Test with dummy data _(No http requests will be used)_
+ 
+### Examples
+
+!INCLUDECODE "secret-server-reader/secread/tests/test_secread.py" (python)
