@@ -1,8 +1,11 @@
 [tool.poetry]
 name = "secread"
-version = "0.1.1"
+version = "0.1.2"
 description = "This Python module allows to retrive secrets from Thycotic Secret Server. It utilizes the REST API"
 authors = ["Josef Fuchs <j053ff0x@gmail.com>"]
+homepage = "https://github.com/jifox/secret-server-reader.git"
+keywords = ["thycotic", "secret", "secret-server"]
+readme = "README.md"
 license = "MIT"
 
 [tool.poetry.dependencies]
