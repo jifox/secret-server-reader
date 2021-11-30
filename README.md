@@ -48,13 +48,9 @@ SECRET_SERVER_DEFAULT_SLUGS='["id", "url", "username", "password"]'
 # - True: The API will not be used. SECRET_SERVER_TEST_DUMMY_RESUT will be returned
 SECRET_SERVER_IS_DUMMY='False'
 SECRET_SERVER_TEST_DUMMY_RESUT='{"id": "12345", username": "testuser", "password": "testpassword", "url": "https://localhost/SecretServer"}'
-
-
 ```
 
 ### Development
-
-the primary development directory is /home/ansible/netbot/secret-server-reader on server SCVPCONF01
 
 The installation instruction for `poetry` is here: <https://python-poetry.org/docs/#installation>
 

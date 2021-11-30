@@ -1,7 +1,10 @@
 .coverage
 .env
+*.env
+!example.env
 .mypy_cache/
 .pytest_cache/
 .vscode/
 __pycache__/
+README.mdpp
 dist/
