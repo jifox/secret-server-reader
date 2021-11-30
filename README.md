@@ -22,7 +22,8 @@ To configure the module use following environment variables. It is also possible
 to provide the file '.env' with the settings
 
 ```bash
-cat .env
+cp .env.example .env
+vi .env
 ```
 
 ```python
@@ -52,7 +53,6 @@ SECRET_SERVER_TEST_DUMMY_RESULT='{"id": "12345", username": "testuser", "passwor
 
 # 'name' of the secret that is used for testing on live server
 # TEST_SECRET_NAME='GitLab Token netsearch-ro'
-
 ```
 
 ### Development
@@ -62,8 +62,8 @@ The installation instruction for `poetry` is here: <https://python-poetry.org/do
 - **Using the module with poetry:**
 
     ```bash
-    git clone .... secret-server-reader
-    cd you_project_dir
+    git clone https://github.com/jifox/secret-server-reader.git
+    cd your_project_dir
     poetry add .../secret-server-reader
     ```
 
@@ -118,5 +118,4 @@ def test_get_secret_by_name(sec_server: SecretServer):
     res = sec_server.searchSecret(secname)
     assert "username" in res.keys(), "Missing username"
     assert "password" in res.keys(), "Missing password"
-
 ```
