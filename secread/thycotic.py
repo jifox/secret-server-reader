@@ -51,7 +51,7 @@ class SecretServer:
     SECRET_SERVER_API: str
     SECRET_SERVER_DEFAULT_SLUGS: List[str] = ["id", "url", "username", "password"]
     SECRET_SERVER_IS_DUMMY: bool
-    SECRET_SERVER_TEST_DUMMY_RESUT: Dict[Any, Any]
+    SECRET_SERVER_TEST_DUMMY_RESULT: Dict[Any, Any]
 
     def __init__(self) -> None:
         load_dotenv(".env")
@@ -83,7 +83,7 @@ class SecretServer:
         self.SECRET_SERVER_API = self.SECRET_SERVER_SITE + "/api/v1"
         self.SECRET_SERVER_IS_DUMMY = is_truthy(os.getenv("SECRET_SERVER_IS_DUMMY", "False"))
         try:
-            dummyres = json.loads(str(os.getenv("SECRET_SERVER_TEST_DUMMY_RESUT")))
+            dummyres = json.loads(str(os.getenv("SECRET_SERVER_TEST_DUMMY_RESULT")))
         except:
             dummyres = None
         if not dummyres or ("username" not in dummyres) or ("password" not in dummyres) or ("url" not in dummyres):
@@ -92,7 +92,7 @@ class SecretServer:
                 "password": "testpassword",
                 "url": "https://localhost/SecretServer",
             }
-        self.SECRET_SERVER_TEST_DUMMY_RESUT = dummyres
+        self.SECRET_SERVER_TEST_DUMMY_RESULT = dummyres
         self._isconnected = False
         self.token = None
 
@@ -149,12 +149,12 @@ class SecretServer:
                         },
                         {
                             "itemId": 18583,
-                            "itemValue": self.SECRET_SERVER_TEST_DUMMY_RESUT["username"],
+                            "itemValue": self.SECRET_SERVER_TEST_DUMMY_RESULT["username"],
                             "slug": "username",
                         },
                         {
                             "itemId": 18584,
-                            "itemValue": self.SECRET_SERVER_TEST_DUMMY_RESUT["password"],
+                            "itemValue": self.SECRET_SERVER_TEST_DUMMY_RESULT["password"],
                             "slug": "password",
                         },
                     ],

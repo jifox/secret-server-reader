@@ -43,11 +43,16 @@ SECRET_SERVER_SSL_VERIFY='/etc/ssl/certs/ca-bundle.trust.crt'
 # Default field-items to extract from result.
 SECRET_SERVER_DEFAULT_SLUGS='["id", "url", "username", "password"]'
 
-# SECRET_SERVER_IS_DUMMY 
+# SECRET_SERVER_IS_DUMMY (Default: False)
 # - False: Secert-Server-API is active
-# - True: The API will not be used. SECRET_SERVER_TEST_DUMMY_RESUT will be returned
-SECRET_SERVER_IS_DUMMY='False'
-SECRET_SERVER_TEST_DUMMY_RESUT='{"id": "12345", username": "testuser", "password": "testpassword", "url": "https://localhost/SecretServer"}'
+# - True: The API will not be used. SECRET_SERVER_TEST_DUMMY_RESULT will be returned
+# SECRET_SERVER_IS_DUMMY=False
+
+SECRET_SERVER_TEST_DUMMY_RESULT='{"id": "12345", username": "testuser", "password": "testpassword", "url": "https://localhost/SecretServer"}'
+
+# 'name' of the secret that is used for testing on live server
+# TEST_SECRET_NAME='GitLab Token netsearch-ro'
+
 ```
 
 ### Development
