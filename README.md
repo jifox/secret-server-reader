@@ -12,8 +12,16 @@ MIT
 
 ### Installation
 
+Installation with `PyPi`:
+
 ```bash
-poetry install
+pip install secread
+```
+
+Installation with `poetry`:
+
+```bash
+poetry add secread
 ```
 
 ### Configuration
@@ -22,7 +30,10 @@ To configure the module use following environment variables. It is also possible
 to provide the file '.env' with the settings
 
 ```bash
+# copy the template as environment file
 cp .env.example .env
+
+# Edit configuration file
 vi .env
 ```
 
@@ -59,23 +70,32 @@ SECRET_SERVER_TEST_DUMMY_RESULT='{"id": "12345", username": "testuser", "passwor
 
 The installation instruction for `poetry` is here: <https://python-poetry.org/docs/#installation>
 
-- **Using the module with poetry:**
+```bash
+git clone https://github.com/jifox/secret-server-reader.git
+cd secret-server-reader
 
-    ```bash
-    git clone https://github.com/jifox/secret-server-reader.git
-    cd your_project_dir
-    poetry add .../secret-server-reader
-    ```
+# Set python environment to use for development
+# poetry env use python3.8
 
-- **Using the module with pip:**
+# Install the module
+poetry install
 
-    ```bash
-    git clone .... secret-server-reader
-    cd .../secret-server-reader
-    poetry build
+# Execute tests (be sure to configure the system before)
+poetry run pytest -v
+```
 
-    pip install dist/secread-0.1.0-py3-none-any.whl
-    ```
+#### Update pypi
+
+Before updating pypi, the version number must be incremented in following files:
+
+- pyproject.toml
+- secread/__init__.py
+- secread/tests/test_secread.py
+
+```bash
+poetry build
+poetry publish
+```
 
 ### Examples
 
