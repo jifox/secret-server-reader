@@ -75,6 +75,8 @@ The installation instruction for `poetry` is here: <https://python-poetry.org/do
 ### Examples
 
 ```python
+"""Tests for module secread"""
+import os
 import pytest
 from secread import __version__, SecretServer
 
@@ -99,7 +101,7 @@ def test_secretserver(sec_server: SecretServer):
 
 
 def test_get_secret_response_by_name(sec_server: SecretServer):
-    secname = "GitLab Token netsearch-ro"
+    secname = os.getenv("TEST_SECRET_NAME", "GitLab Token netsearch-ro")
     res = sec_server.searchSecretResponse(secname)
     fields = sec_server.getFieldItemWithSlug(res)
     assert "username" in fields.keys(), "Missing username"
@@ -107,7 +109,7 @@ def test_get_secret_response_by_name(sec_server: SecretServer):
 
 
 def test_get_secret_by_name(sec_server: SecretServer):
-    secname = "GitLab Token netsearch-ro"
+    secname = os.getenv("TEST_SECRET_NAME", "GitLab Token netsearch-ro")
     res = sec_server.searchSecret(secname)
     assert "username" in res.keys(), "Missing username"
     assert "password" in res.keys(), "Missing password"
